@@ -46,9 +46,13 @@ public class Main {
         int mortalityPeopleY = 8 * numberPeopleY / 1000;
         int sumYearNumberPeopleY = 0;
         int i = 0;
+        int oldYearNumberPeopley = numberPeopleY;
         while (i < 10) {
             i++;
-            sumYearNumberPeopleY = (numberPeopleY + fertilityPeopleY - mortalityPeopleY) * i;
+            sumYearNumberPeopleY = (oldYearNumberPeopley + fertilityPeopleY - mortalityPeopleY);
+            oldYearNumberPeopley = sumYearNumberPeopleY;
+            fertilityPeopleY = 17 * sumYearNumberPeopleY / 1000;
+            mortalityPeopleY = 8 * sumYearNumberPeopleY / 1000;
             System.out.println("Год " + i + ", численность населения составляет " + sumYearNumberPeopleY);
         }
     }
